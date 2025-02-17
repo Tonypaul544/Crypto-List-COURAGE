@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="STYLE.CSS">
+
+  <link rel="shortcut icon" href="images/small-profile.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="query.css">
+
+  <title>CRYPTO LIST</title>
+</head>
+<body>
+  <div class="list-container">
+    <div class="row">
+      <h1 id="list-header">CRYPTO LISTS</h1>
+        <div class="profile-div" id="profile-div">
+          <h4 class="userName" id="userName">COURAGE</h4>
+          <img src="images/profie.jpg" alt="" class="logo">
+        </div>
+    </div>
+
+    <div class="typename" id="nameDiv">
+      <form action="submit" class="nameForm">
+        <div id="picDiv">
+          <img src="images/small-profile.jpg" alt="" id="blank">
+
+          <!-- <label for="inputFile" id="file-label">Select Photo</label> -->
+
+          <!-- <input type="file" accept="image/jpeg, image/jpg, image/pdf image/png" id="inputFile"> -->
+        </div>
+
+        <textarea type="text" id="typename" placeholder="Enter your name" required></textarea>
+        <button type="button" id="saveName">Save</button>
+      </form>
+    </div>
+
+    <div class="nav-container">
+      <button class="navBtn games" id="games">games</button>
+      <button class="navBtn Airdrops">Airdrops</button>
+      <button class="navBtn Testnets">Fausets</button>
+    </div>
+    <div class="warning" id="popup">
+      <h2 class="warningText">The both fields must be filled..!!</h2>
+    </div>
+
+    <form action="submit-form" class="inputForm gameForm" id="change">
+      <input type="text" placeholder="Paste Game URL Here..." id="input-box">
+      <input type="text" placeholder="Project Name" id="name-box">
+      <button type="button" class="submit-ntb" id="addBtn">Add</button>
+    </form>
+    
+    <div class="downSection">
+
+      <!-- GAME SLIDE SECTION -->
+
+      <h2 class="form-title">Game List</h2>
+
+      <div class="slideContainer gamesSlide" id="listcontainer">
+        <form class="list" id="list">
+          <!-- <div class="listhead"></div> -->
+          <ul class="list-items" id="items">
+            <!-- <div class="line line1"  id="line"> -->
+              <!-- <li class="list" id="link">List 1</li> -->
+              <!-- <a href="${linkInput.value}" target="_blank"></a> -->
+            </ul>
+        </form>
+      </div>
+    </div>
+
+        <!-- ---SOCIAL SECTION---- -->
+    <footer class="social">
+      <a href="https://x.com/COURAGE_XBT?t=9jW78FehSevukK4_tkzevw&s=09">
+        <div class="icon twitter">
+          <i class="fa-brands fa-square-x-twitter fa-lg" style="color: #044621;"></i>
+          <h3 class="twitter-label" id="icon-name">Twitter</h3>
+        </div>
+      </a>
+
+      <a href="http://t.me/tonywoodtv">
+          <div class="Telegram">
+          <i class="fa-brands fa-telegram fa-lg" style="color: #044621;"></i>
+          <h3 class="Telegram-label" id="icon-name">Telegram</h3>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@paulnwodotochukwu180">
+      <div class="Thread">
+        <i class="fa-brands fa-medium fa-xl" style="color: #044621;"></i>
+          <h3 class="Thread-label" id="icon-name">Medium</h3>
+        </div>
+      </a>
+    </footer>
+    <div class="copyright-div">
+      <p class="copyright">&copy; 2024 Pauline-Tech</p>
+    </div>
+  </div>
+  <script src="another.js"></script>
+</body>
+</html>
