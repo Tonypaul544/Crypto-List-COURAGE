@@ -60,7 +60,7 @@
     display: flex;
     box-sizing: border-box;
     /* margin-left: 30px; */
-    /* display: none; */
+    display: none;
     z-index: 1;
     animation: slide 1s;
   }
