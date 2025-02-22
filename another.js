@@ -12,6 +12,8 @@ const addBtn = document.getElementById("addBtn");
 const listItem = document.getElementById("items");
 const listcontainer = document.getElementById("listcontainer");
 const userName = document.getElementById("userName");
+const limitDiv = document.getElementById("limit-div");
+let listCount = document.getElementById("list")
 
 profile.addEventListener("click", editProfile);
 
@@ -48,30 +50,41 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTasks(); // Load tasks on page load
 });
 
-
 function addTask(e) {
   e.preventDefault();
 
   if (linkInput.value === "" || nameInput.value === "") {
     let warning = document.getElementById("popup");
-    warning.style.display = "block";
     warning.innerHTML = "Both fields are required.!";
+    warning.style.display = "block";
 
     setTimeout(() => {
       warning.style.display = "none";
     }, 2500);
-  } else {
+  }
+  //  else if (storedTasks.lenght > 7) {
+  //   alert("hello world.")
+  //   // limitDiv.style.display = "block";
+  // }
+
+
+   else {
     const safeName = nameInput.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); // Sanitize input
     const newItem = document.createElement('div'); // Create the div
     newItem.className = "line line1";
     newItem.innerHTML = `
       <li class="list">${safeName}</li>
-      <a href="${linkInput.value}" class="nameBtn btn1" target="_blank"><button>Play</button></a>`;
+      <a href="${linkInput.value}" class="nameBtn btn1" target="_blank"> 
+        <button>Play</button>
+      </a>`;
     listItem.appendChild(newItem); // Append to the list
     nameInput.value = "";
     linkInput.value = "";
     saveTasks(); // Save tasks after adding
   }
+
+  
+
 }
 
 addBtn.addEventListener("click", addTask);
@@ -106,9 +119,12 @@ function loadTasks() {
         newItem.className = "line line1";
         newItem.innerHTML = `
           <li class="list">${task.name}</li>
-          <a href="${task.link}" class="nameBtn btn1" target="_blank"><button>Play</button></a>`;
+          <a href="${task.link}" class="nameBtn btn1" target="_blank">
+            <button>Play</button>
+          </a>`;
         listItem.appendChild(newItem);
       });
+
     } catch (error) {
       console.error("Error parsing stored tasks:", error);
       // Handle the error (e.g., clear localStorage or display a message)
