@@ -64,6 +64,14 @@
     z-index: 1;
     animation: slide 1s;
   }
+  
+  .smalldark {
+    background-color: rgba(189, 220, 223, 0.625);
+  }
+  
+  #color {
+    color: #fff;
+  }
 
   .dark {
     background-color: rgba(57, 67, 68, 0.89);
@@ -73,14 +81,6 @@
     #brands {
       color: #fff;
     }
-  }
-  
-  .smalldark {
-    background-color: rgba(189, 220, 223, 0.625);
-  }
-  
-  #color {
-    color: #fff;
   }
 
 }
