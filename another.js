@@ -10,10 +10,30 @@ const linkInput = document.getElementById("input-box");
 const nameInput = document.getElementById("name-box");
 const addBtn = document.getElementById("addBtn");
 const listItem = document.getElementById("items");
-const listcontainer = document.getElementById("listcontainer");
+const listContainer = document.getElementById("listcontainer");
 const userName = document.getElementById("userName");
 const limitDiv = document.getElementById("limit-div");
 let listCount = document.getElementById("list")
+let totalList = document.getElementById("totalList")
+const hideEdit = document.getElementById("hideEdit");
+const theme = document.getElementById("theme");
+const change = document.getElementById("change");
+const clearAllTasks = document.getElementById("clearAllTasks");
+const confirmNo = document.getElementById("confirmNo");
+const confirmYes = document.getElementById("confirmYes");
+const confirmationdiv = document.getElementById("confirmationdiv");
+
+theme.addEventListener("click", toggleTheme);
+function toggleTheme() {
+  listContainer.classList.toggle("dark");
+  change.classList.toggle("dark");
+  // listCount.classList.toggle("dark");
+  listItem.classList.toggle("smalldark");
+  nameDiv.classList.toggle("dark");
+  theme.classList.toggle("color");
+  profilePic.classList.toggle("dark");
+  saveTasks(); // Save theme after toggling
+};
 
 profile.addEventListener("click", editProfile);
 
@@ -40,6 +60,12 @@ function updateProfile() {
     }, 2500);
   }
 }
+
+hideEdit.addEventListener("click", () => {
+  nameDiv.style.display = "none";
+
+});
+
 
 // Load username on page load
 window.addEventListener('DOMContentLoaded', () => {
@@ -83,10 +109,16 @@ function addTask(e) {
     saveTasks(); // Save tasks after adding
   }
 
-  
-
+  totalList.innerHTML = listCount.length;
+  function turnGreen () {
+    if (listCount.length > 0) {
+      totalList.style.color = "green";
+    }
+    totalList.style.color = "green";
+  }
 }
 
+// Event listener for "Add" button clicks
 addBtn.addEventListener("click", addTask);
 
 // Event delegation for "Play" button clicks
@@ -96,6 +128,7 @@ listItem.addEventListener("click", (event) => {
   }
 });
 
+// Save tasks to localStorage
 function saveTasks() {
   const tasks = [];
   const taskElements = listItem.querySelectorAll('.line'); // Get all task elements
@@ -109,6 +142,7 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks)); // Store tasks as JSON
 }
 
+// Load tasks from localStorage
 function loadTasks() {
   const storedTasks = localStorage.getItem("tasks");
   if (storedTasks) {
@@ -125,6 +159,7 @@ function loadTasks() {
         listItem.appendChild(newItem);
       });
 
+      totalList.innerHTML = tasks.length
     } catch (error) {
       console.error("Error parsing stored tasks:", error);
       // Handle the error (e.g., clear localStorage or display a message)
@@ -132,3 +167,29 @@ function loadTasks() {
     }
   }
 }
+
+// Clear all tasks
+function clearTasks() {
+  listItem.innerHTML = "";
+  saveTasks(); // Save tasks after clearing
+}
+
+
+// Event listener for "Clear All" button clicks
+clearAllTasks.addEventListener("click", () => {
+  // alert("Are you sure you want to clear all tasks?");
+  confirmationdiv.style.display = "flex";
+});
+
+confirmYes.addEventListener("click", () => {
+  confirmationdiv.style.display = "none";
+  clearTasks()
+});
+
+confirmNo.addEventListener("click", () => {
+  confirmationdiv.style.display = "none";
+});
+
+
+
+

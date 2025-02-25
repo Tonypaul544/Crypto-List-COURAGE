@@ -12,19 +12,23 @@
   <title>CRYPTO LIST</title>
 </head>
 <body>
-  <div class="list-container">
+  <div class="list-container" id="listcontainer">
+    
     <div class="row">
       <h1 id="list-header">CRYPTO LISTS</h1>
       <div class="profile-div" id="profile-div">
         
         <h4 class="userName" id="userName">COURAGE</h4>
         <img src="images/pngtree-elegant-black-gold-profile-icon-png-image_15466373.png" alt="" class="logo">
+
       </div>
+      
     </div>
     
-
     <div class="typename" id="nameDiv">
       <form action="submit" class="nameForm">
+        <i id="hideEdit" class="fa-regular fa-circle-xmark fa-xl"></i>
+        
         <div id="picDiv">
           <img  style="width: 300;" src="images/pngtree-elegant-black-gold-profile-icon-png-image_15466373.png" alt="" id="blank">
 
@@ -38,9 +42,9 @@
       </form>
     </div>
 
-    <div class="nav-container">
+    <!-- <div class="nav-container">
       <h4 id="description">Copy the URL of your crypto assets and paste in the URL box then type the bane on the name box and hit the "Add" button to save.</h4>
-    </div>
+    </div> -->
 
     <div class="warning" id="popup">
       <h2 class="warningText">The both fields must be filled..!!</h2>
@@ -78,8 +82,20 @@
 
       <!-- GAME SLIDE SECTION -->
 
-      <h2 class="form-title">Game List</h2>
+      <div id="themediv">
+        <h2 class="form-title">Saved List <strong id="totalList">00</strong></h2><br>
+        <i id="theme" class="fa-solid fa-cloud-moon fa-s"></i>
+      </div>
 
+      <div class="confirmationdiv" id="confirmationdiv">
+        <p class="confirmation">Are you sure you want to clear all your tasks? <br>
+        This action can`t be undone.!
+        </p>
+        <div class="confirmationBtn">
+          <button id="confirmNo">cancel</button>
+          <button id="confirmYes">Clear</button>
+        </div>
+      </div>
       <div class="slideContainer gamesSlide" id="listcontainer">
         <form class="list" id="list">
           <!-- <div class="listhead"></div> -->
@@ -89,6 +105,7 @@
               <!-- <a href="${linkInput.value}" target="_blank"></a> -->
           </ul>
         </form>
+        <button id="clearAllTasks">Clear</button>
       </div>
     </div>
 
@@ -96,21 +113,21 @@
     <footer class="social">
       <a href="https://x.com/COURAGE_XBT?t=9jW78FehSevukK4_tkzevw&s=09">
         <div class="icon twitter">
-          <i class="fa-brands fa-square-x-twitter fa-lg" style="color: #044621;"></i>
+          <i class="fa-brands fa-square-x-twitter fa-lg" style="color: #024c54;"></i>
           <h3 class="twitter-label" id="icon-name">Twitter</h3>
         </div>
       </a>
 
       <a href="http://t.me/tonywoodtv">
           <div class="Telegram">
-          <i class="fa-brands fa-telegram fa-lg" style="color: #044621;"></i>
+          <i class="fa-brands fa-telegram fa-lg" style="color: #076844;" id="brands"></i>
           <h3 class="Telegram-label" id="icon-name">Telegram</h3>
         </div>
       </a>
 
       <a href="https://medium.com/@paulnwodotochukwu180">
       <div class="Thread">
-        <i class="fa-brands fa-medium fa-xl" style="color: #044621;"></i>
+        <i class="fa-brands fa-medium fa-xl" style="color: #024c54;"></i>
           <h3 class="Thread-label" id="icon-name">Medium</h3>
         </div>
       </a>
