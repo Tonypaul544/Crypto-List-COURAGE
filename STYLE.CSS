@@ -372,6 +372,7 @@ ul li {
   text-decoration: line-through;
 }
 
+
 .line {
   width: 100%;
   height: 50px;
@@ -386,17 +387,35 @@ ul li {
   background-color: rgba(120, 141, 133, 0.747);
   margin-bottom: 10px;
   margin-top: 10px;
+  flex-direction: row;
 }
 
-.fa-share {
+.fa-trash {
+  height: 50%;
+  width: 25px;
+  display: flex;
+  padding: 5px;
+  padding-top: 10px;
+  padding-right: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: -15px;
+  margin-right: 5px;
+  font-size: 11px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+
+/* .fa-share {
   height: 60%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-items: center;
-  /* background-color: aqua; */
-}
+  background-color: aqua;
+} */
 
 li:hover {
   /* background-color: rgba(148, 181, 181, 0.707); */
@@ -464,10 +483,14 @@ a {
   text-decoration: none;
 }
 
-/* .Checked {
+#brands {
+  color: #06363c;
+}
+
+.Checked {
   text-decoration: line-through;
   margin-bottom: unset;
-} */
+}
 
 .copyright-div {
   width: 100%;
@@ -701,13 +724,6 @@ a {
 
 }
 
-.dark {
-  background-color: rgba(57, 67, 68, 0.89);
-  * {
-    color: #fff;
-  }
-}
-
 .smalldark {
   background-color: rgba(189, 220, 223, 0.625);
 }
@@ -767,4 +783,19 @@ a {
 
 #confirmYes {
   background-color: rgba(211, 52, 16, 0.767);
+}
+
+
+.dark {
+  background-color: rgba(57, 67, 68, 0.89);
+  * {
+    color: #fff;
+  }
+  #brands {
+    color: #fff;
+  }
+
+  #confirmationdiv {
+    background-color: rgba(84, 116, 99, 0.942);
+  }
 }

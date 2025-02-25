@@ -32,6 +32,8 @@ function toggleTheme() {
   nameDiv.classList.toggle("dark");
   theme.classList.toggle("color");
   profilePic.classList.toggle("dark");
+  totalList.classList.toggle("dark");
+  confirmationdiv.classList.toggle("dark");
   saveTasks(); // Save theme after toggling
 };
 
@@ -76,6 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTasks(); // Load tasks on page load
 });
 
+// Add task
 function addTask(e) {
   e.preventDefault();
 
@@ -93,13 +96,15 @@ function addTask(e) {
   //   // limitDiv.style.display = "block";
   // }
 
-
    else {
     const safeName = nameInput.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); // Sanitize input
     const newItem = document.createElement('div'); // Create the div
     newItem.className = "line line1";
     newItem.innerHTML = `
-      <li class="list">${safeName}</li>
+      <li class="list">
+        <i class="fa-solid fa-trash fa-sm"></i>
+        ${safeName}
+      </li>
       <a href="${linkInput.value}" class="nameBtn btn1" target="_blank"> 
         <button>Play</button>
       </a>`;
@@ -108,6 +113,8 @@ function addTask(e) {
     linkInput.value = "";
     saveTasks(); // Save tasks after adding
   }
+
+  let listCount = listItem.querySelectorAll('.line');   // Get all task elements
 
   totalList.innerHTML = listCount.length;
   function turnGreen () {
@@ -152,7 +159,10 @@ function loadTasks() {
         const newItem = document.createElement('div');
         newItem.className = "line line1";
         newItem.innerHTML = `
-          <li class="list">${task.name}</li>
+          <li class="list">
+            <i class="fa-solid fa-trash fa-sm"></i>
+            ${task.name}
+          </li>
           <a href="${task.link}" class="nameBtn btn1" target="_blank">
             <button>Play</button>
           </a>`;
@@ -174,7 +184,6 @@ function clearTasks() {
   saveTasks(); // Save tasks after clearing
 }
 
-
 // Event listener for "Clear All" button clicks
 clearAllTasks.addEventListener("click", () => {
   // alert("Are you sure you want to clear all tasks?");
@@ -193,3 +202,18 @@ confirmNo.addEventListener("click", () => {
 
 
 
+
+// Event delegation for "Trash" button clicks
+listItem.addEventListener("click", (d) => {
+  d.preventDefault();
+  d.target.parentElement.parentElement.remove();
+  saveTasks(); // Save tasks after removing
+});
+
+// Event listener for "Enter" keypress
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    addTask(e);
+    saveTasks(); // Save tasks after pressing
+  }
+});
