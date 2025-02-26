@@ -22,6 +22,7 @@ const clearAllTasks = document.getElementById("clearAllTasks");
 const confirmNo = document.getElementById("confirmNo");
 const confirmYes = document.getElementById("confirmYes");
 const confirmationdiv = document.getElementById("confirmationdiv");
+const deleteBtn1 = document.getElementById("deleteBtn1")
 
 theme.addEventListener("click", toggleTheme);
 function toggleTheme() {
@@ -62,6 +63,13 @@ function updateProfile() {
     }, 2500);
   }
 }
+
+// document.addEventListener("keypress", (e) => {
+//   if (e.key === "Enter") {
+//     updateProfile(e)
+//     saveTasks(); // Save tasks after pressing
+//   }
+// });
 
 hideEdit.addEventListener("click", () => {
   nameDiv.style.display = "none";
@@ -160,11 +168,11 @@ function loadTasks() {
         newItem.className = "line line1";
         newItem.innerHTML = `
           <li class="list">
-            <i class="fa-solid fa-trash fa-sm"></i>
+            <i class="fa-solid fa-trash fa-sm" id="deleteBtn1"></i>
             ${task.name}
           </li>
           <a href="${task.link}" class="nameBtn btn1" target="_blank">
-            <button>Play</button>
+            <button id="play1">Play</button>
           </a>`;
         listItem.appendChild(newItem);
       });
@@ -178,6 +186,16 @@ function loadTasks() {
   }
 }
 
+listCount.addEventListener("click", doneTask);
+function doneTask(e) {
+  if (e.target.tagName === "BUTTON") {
+    e.target.parentElement.style.textDecoration = "line-through";
+    e.target.parentElement.style.color = "gray";
+    saveTasks(); // Save tasks after toggling
+  }
+  // newItem.classList.toggle("done");
+}
+
 // Clear all tasks
 function clearTasks() {
   listItem.innerHTML = "";
@@ -186,7 +204,6 @@ function clearTasks() {
 
 // Event listener for "Clear All" button clicks
 clearAllTasks.addEventListener("click", () => {
-  // alert("Are you sure you want to clear all tasks?");
   confirmationdiv.style.display = "flex";
 });
 
@@ -201,15 +218,6 @@ confirmNo.addEventListener("click", () => {
 
 
 
-
-
-// Event delegation for "Trash" button clicks
-listItem.addEventListener("click", (d) => {
-  d.preventDefault();
-  d.target.parentElement.parentElement.remove();
-  saveTasks(); // Save tasks after removing
-});
-
 // Event listener for "Enter" keypress
 document.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -217,3 +225,63 @@ document.addEventListener("keypress", (e) => {
     saveTasks(); // Save tasks after pressing
   }
 });
+
+// Event listener for "Escape" keypress
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    nameDiv.style.display = "none";
+  }
+});
+
+
+// Event delegation for "Trash" button clicks
+listItem.addEventListener("click", (event) => {
+  if (event.target.tagName === "I") {
+    event.target.parentElement.parentElement.remove();
+    saveTasks(); // Save tasks after removing
+
+    listCount = listItem.querySelectorAll('.line');   // Get all task elements
+    totalList.innerHTML = listCount.length;
+    saveTasks(); // Save tasks after removing
+
+    //hide totalList when listCount is 0
+    if (listCount.length === 0) {
+      totalList.innerHTML = "";
+    }
+    else if (listCount.length > 0) {
+      totalList.style.color = "green";
+    }
+
+  }
+});
+
+
+
+
+// listItem.addEventListener("click", (d) => {
+//   d.preventDefault();
+//   if(d.target.getElementById = "deleteBtn1") {
+//     d.target.parentElement.parentElement.remove();
+//     listCount = listItem.querySelectorAll('.line');   // Get all task elements
+//     totalList.innerHTML = listCount.length;
+//     listItem.style.backgroundColor = "black";
+//     saveTasks(); // Save tasks after removing
+
+//   }
+// });
+
+
+
+
+
+
+
+
+// deleteBtn1.addEventListener("click", (d) => {
+//   d.preventDefault();
+//   if(d.target.tagName === "I") {
+//     d.target.parentElement.parentElement.remove();
+//     saveTasks(); // Save tasks after removing
+
+//   }
+// });

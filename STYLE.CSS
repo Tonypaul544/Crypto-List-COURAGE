@@ -1,7 +1,7 @@
 
 
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: cursive;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -200,7 +200,7 @@ button {
   height: 40px;
   width: 80px;
   border-radius: 15px;
-  background-color: rgba(127, 177, 183, 0.774);
+  background-color: #35644e;
   color: #fff;
   font-size: 20px;
   border: none;
@@ -337,6 +337,10 @@ button.nameBtn {
   height: 100%;
 }
 
+#play1 {
+  font-size: 18px;
+}
+
 .listhead {
   width: 100%;
 }
@@ -353,7 +357,7 @@ button.nameBtn {
 
 
 ul li {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   padding: 5px;
   margin-bottom: 10px;
@@ -423,6 +427,10 @@ li:hover {
   /* color: #fff; */
 }
 
+.done {
+  text-decoration: line-through;
+}
+
 /* ---Footer SECTION---- */
 
 footer {
@@ -468,8 +476,8 @@ footer div h3 {
   margin-top: -32px;
   color: black;
   font-weight: 900;
-  font-size: 13px;
-  font-family:serif;
+  font-size: 11px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* text-decoration: none; */
 }
 
@@ -506,26 +514,31 @@ a {
 }
 
 #themediv {
-  width: 100%;
+  width: 85%;
   height: 100%;
+  margin: auto;
   /* background-color: brown; */
   display: flex;
-  justify-content: end;
+  align-items: center;
+  
+  justify-content: space-between;
+  gap: 10px;
   padding-right: 10px;
   box-sizing: border-box;
   border-radius: 12px;
 }
 
 #theme {
-  width: 30px;
-  height: 30px;
-  background-color: #000;
+  width: 45px;
+  height: 50px;
+  font-size: 27px;
+  background-color: #35644e;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: baseline;
   padding: 5px;
-  padding-left: 5px;
+  /* padding-left: 5px; */
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
@@ -699,7 +712,7 @@ a {
 }
 
 .form-title {
-  /* background-color: aqua; */
+  background-color: rgba(107, 149, 149, 0.824);
   height: 50px;
   /* font-size: 12px; */
   font-weight: 600;
@@ -709,15 +722,14 @@ a {
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  width: 100%;
   border-radius: 12px;
 
 }
 
 .form-title {
-  width: 100%;
+  width: 40%;
   height: 50px;
-  font-size: 15px;
+  font-size: 17px;
   flex-wrap: nowrap;
   font-weight: 600;
   /* background-color: rgb(222, 252, 252); */
@@ -736,12 +748,12 @@ a {
   height: 40px;
   width: 100px;
   border-radius: 12px;
-  background-color: rgba(211, 52, 16, 0.767);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  background-color: rgba(211, 52, 16, 0.767);
 }
 
 #clearAllTasks:hover {
