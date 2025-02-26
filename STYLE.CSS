@@ -1,7 +1,7 @@
 
 
 * {
-  font-family: cursive;
+  font-family: "Courgette", serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -19,6 +19,14 @@ body {
   height: 100vh;
   overflow-x: hidden;
 }
+
+.courgette-regular {
+  font-family: "Courgette", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 .list-container {
   background-color: #848784e4;
