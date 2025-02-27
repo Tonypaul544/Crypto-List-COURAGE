@@ -39,17 +39,19 @@ function toggleTheme() {
 };
 
 profile.addEventListener("click", editProfile);
-
 function editProfile() {
   nameDiv.style.display = "block";
 }
 
 saveName.addEventListener("click", updateProfile);
-
 function updateProfile() {
   if (typename.value === "") {
     alert("Name can't be blank!");
-  } else {
+  } else if (typename.value.length > 10) {
+    alert("Name can't be more than 10 characters!");
+  }
+  
+  else {
     userName.innerHTML = typename.value;
     localStorage.setItem("userName", typename.value); // Save username
     typename.value = "";
@@ -62,14 +64,14 @@ function updateProfile() {
       warning.style.display = "none";
     }, 2500);
   }
+  // document.addEventListener("keypress", (e) => {
+  //   if (e.key === "Enter") {
+  //     updateProfile(e)
+  //     saveTasks(); // Save tasks after pressing
+  //   }
+  // });
 }
 
-// document.addEventListener("keypress", (e) => {
-//   if (e.key === "Enter") {
-//     updateProfile(e)
-//     saveTasks(); // Save tasks after pressing
-//   }
-// });
 
 hideEdit.addEventListener("click", () => {
   nameDiv.style.display = "none";
@@ -99,6 +101,26 @@ function addTask(e) {
       warning.style.display = "none";
     }, 2500);
   }
+  else if (nameInput.value.length > 15) {
+    warning = document.getElementById("popup");
+    warning.innerHTML = "Project Name can't be more than 15 characters!";
+    warning.style.display = "block";
+    setTimeout(() => {
+      warning.style.display = "none";
+    }, 2800);
+  }
+  else if(!linkInput.value.startsWith("https://") && !linkInput.value
+  .startsWith("http://") && !linkInput
+  .value.startsWith("www.")) {
+    warning = document.getElementById("popup");
+    warning.innerHTML = "Please enter a valid URL!";
+    warning.style.display = "block";
+    setTimeout(() => {
+      warning.style.display = "none";
+    }, 2800);
+  }
+
+
   //  else if (storedTasks.lenght > 7) {
   //   alert("hello world.")
   //   // limitDiv.style.display = "block";
@@ -216,8 +238,6 @@ confirmNo.addEventListener("click", () => {
   confirmationdiv.style.display = "none";
 });
 
-
-
 // Event listener for "Enter" keypress
 document.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -269,10 +289,6 @@ listItem.addEventListener("click", (event) => {
 
 //   }
 // });
-
-
-
-
 
 
 
