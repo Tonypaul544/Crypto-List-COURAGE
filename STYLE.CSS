@@ -405,6 +405,7 @@ ul li {
 .fa-trash {
   height: 50%;
   width: 25px;
+  color:maroon;
   display: flex;
   padding: 5px;
   padding-top: 10px;
@@ -761,7 +762,7 @@ a {
   justify-content: center;
   margin: auto;
   margin-bottom: 15px;
-  background-color: rgba(211, 52, 16, 0.767);
+  background-color: maroon;
 }
 
 #clearAllTasks:hover {
@@ -802,7 +803,7 @@ a {
 }
 
 #confirmYes {
-  background-color: rgba(211, 52, 16, 0.767);
+  background-color: maroon;
 }
 
 
@@ -817,5 +818,9 @@ a {
 
   #confirmationdiv {
     background-color: rgba(84, 116, 99, 0.942);
+  }
+
+  .fa-trash {
+    color:maroon;
   }
 }
